@@ -1,14 +1,16 @@
 class Solution:
     def isPalindrome(self, x: int) -> bool:
-        x = str (x)
-        list_1 = []
-        list_2= []
-        for i in range(len(x)):
-            list_1.append(x[i])
-        for n in range (len(x),0,-1):
-            list_2.append(x[n-1])
-        if list_1 == list_2:
-            return True     
-        else:
+        original = x
+        reversed = 0   
+        if x== 0 or 0 < x < 10 :
+            return True
+        if x <0 :
             return False
-    
+        if x % 10 == 0 :
+            return False    
+        while x > reversed:
+            reversed = reversed*10 + int(x%10)
+            x= x//10
+        if x == reversed//10 or x == reversed:
+            return True
+        return False
